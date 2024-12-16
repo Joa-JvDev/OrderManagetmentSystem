@@ -1,10 +1,12 @@
 package jva.dev.ordermanagetmentsystem.service;
 
+import jva.dev.ordermanagetmentsystem.config.CacheConfig;
 import jva.dev.ordermanagetmentsystem.dto.DishDTO;
 import jva.dev.ordermanagetmentsystem.model.Dish;
 import jva.dev.ordermanagetmentsystem.repository.DishRepository;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -46,6 +48,7 @@ public class DishService{
         return conversionService.convert(updatedDish,DishDTO.class);
     }
 
+    @Cacheable(value = CacheConfig.OBJECT_INFO_CACHE, unless = "#result == null")
     public List<Dish> getAllDish() {
         return dishRepository.findAll();
     }
