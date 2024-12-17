@@ -1,7 +1,6 @@
 package jva.dev.ordermanagetmentsystem.service;
 
 import jva.dev.ordermanagetmentsystem.dto.CustomerDTO;
-import jva.dev.ordermanagetmentsystem.dto.OrderDTO;
 import jva.dev.ordermanagetmentsystem.model.Customer;
 import jva.dev.ordermanagetmentsystem.model.Order;
 import jva.dev.ordermanagetmentsystem.repository.CustomerRepository;
@@ -53,5 +52,4 @@ public class CustomerService {
     public List<Order> getAllOrders(Long id) {
         return customerRepository.findOrdersByCustomerId(id);
     }
-
 }

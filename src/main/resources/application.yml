@@ -1,4 +1,7 @@
 spring:
+  application:
+    name: order-system
+
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}
@@ -38,3 +41,6 @@ info:
     groupId: '@project.groupId@'
     artifactId: '@project.artifactId@'
     version: '@project.version@'
+chatgpt:
+  api-key: ${API_KEY}
+  model: gpt-3.5-turbo

@@ -43,4 +43,10 @@ public class DishController {
         dishService.deleteDish(id);
     }
 
+    @GetMapping(value = "/perfil")
+    public String filterDishbyPerfil(String perfil) {
+        return dishService.filterDishbyPerfil(perfil);
+
+    }
+
 }
